@@ -18,6 +18,8 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     List<Project> findByStatus(ProjectStatus status);
     List<Project> findByInnovator(User innovator);
 
+    Optional<Project> findByIdAndInnovator_UserId(Long id, UUID innovatorId);
+
     @Modifying
     @Transactional
     @Query("UPDATE Project p SET p.status = ?2 WHERE p.id IN ?1 and p.innovator.userId = ?3")

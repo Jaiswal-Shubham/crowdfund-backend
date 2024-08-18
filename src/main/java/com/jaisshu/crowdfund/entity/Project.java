@@ -25,7 +25,7 @@ public class Project {
     @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false, length = 500)
+    @Column(nullable = true, length = 500)
     private String description;
 
     @Column(nullable = false)
@@ -59,6 +59,8 @@ public class Project {
                 .status(this.status.name())
                 .projectId(this.id)
                 .innovatorId(this.innovator.getUserId())
+                .createdAt(this.createdAt)
+                .updatedAt(this.updatedAt)
                 .build();
     }
 

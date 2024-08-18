@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public interface ContributionService {
     Contribution saveContribution(ContributionDTO contributionDTO);
-    Optional<List<Contribution>> getContributionsByProject(Long projectId);
+    Optional<List<Contribution>> getContributionsByProject(UUID innovatorId, Long projectId);
     Optional<List<Contribution>> getContributionsByDonor(UUID donorId);
 
     void requestContribution(UUID innovatorId, List<ContributionRequestDTO> request);

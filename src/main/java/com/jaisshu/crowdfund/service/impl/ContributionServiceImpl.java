@@ -79,8 +79,8 @@ public class ContributionServiceImpl implements ContributionService {
     }
 
     @Override
-    public Optional<List<Contribution>> getContributionsByProject(Long projectId) {
-        Optional<Project> project = projectRepository.findById(projectId);
+    public Optional<List<Contribution>> getContributionsByProject(UUID innovatorId, Long projectId) {
+        Optional<Project> project = projectRepository.findByIdAndInnovator_UserId(projectId, innovatorId);
         return project.map(proj -> contributionRepository.findByProject(proj).orElseGet(List::of));
     }
 
@@ -103,18 +103,4 @@ public class ContributionServiceImpl implements ContributionService {
         }
 
     }
-
-
-//    public void requestContribution(ContributionRequestDTO request) {
-//        Optional<Project> project = projectRepository.findById(request.getProjectId());
-//        Optional<User> donor = userRepository.findByUserId(request.getInnovatorId());
-//
-//        if (project.isPresent() && donor.isPresent()) {
-//            Project persistedProject = project.get();
-//            persistedProject.setStatus(ProjectStatus.ACTIVE);
-//            projectRepository.saveAndFlush(persistedProject);
-//        } else {
-//            throw new IllegalArgumentException("Invalid Project ID or Innovator ID");
-//        }
-//    }
 }

@@ -1,9 +1,5 @@
 package com.jaisshu.crowdfund.dto;
 
-import com.jaisshu.crowdfund.entity.ProjectStatus;
-import com.jaisshu.crowdfund.service.ProjectService;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,11 +15,11 @@ import java.util.UUID;
 @AllArgsConstructor
 public class ProjectDTO {
     private UUID innovatorId;
+    private BigDecimal requestedAmount;
+    private BigDecimal currentFunding;
     private long projectId;
     private String title;
     private String description;
-    private BigDecimal requestedAmount;
-    private BigDecimal currentFunding;
     private String status;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

@@ -42,7 +42,11 @@ public class Contribution {
         return ContributionDTO.builder()
                 .id(this.id)
                 .projectId(this.project.getId())
+                .title(this.project.getTitle())
+                .description(this.project.getDescription())
                 .donorId(this.donor.getUserId())
+                .donorFirstName(this.getDonor().getFirstName())
+                .donorLastName(this.getDonor().getLastName())
                 .amount(this.amount)
                 .contributedAt(this.contributedAt)
                 .build();
