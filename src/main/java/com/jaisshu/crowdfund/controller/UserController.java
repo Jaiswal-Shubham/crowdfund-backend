@@ -1,7 +1,8 @@
 package com.jaisshu.crowdfund.controller;
 
 import com.jaisshu.crowdfund.dto.UserDTO;
-import com.jaisshu.crowdfund.dto.UserLoginDTO;
+import com.jaisshu.crowdfund.dto.UserLoginRequestDTO;
+import com.jaisshu.crowdfund.dto.UserLoginResponseDTO;
 import com.jaisshu.crowdfund.dto.UserRegistrationDTO;
 import com.jaisshu.crowdfund.entity.User;
 import com.jaisshu.crowdfund.service.UserService;
@@ -20,9 +21,9 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/login")
-    public ResponseEntity<UserDTO> loginUser(@RequestBody UserLoginDTO userLoginDTO) {
-        User loggedInUser = userService.loginUser(userLoginDTO);
-        return ResponseEntity.ok(loggedInUser.getDto());
+    public ResponseEntity<UserLoginResponseDTO> loginUser(@RequestBody UserLoginRequestDTO userLoginRequestDTO) {
+        UserLoginResponseDTO loggedInUser = userService.loginUser(userLoginRequestDTO);
+        return ResponseEntity.ok(loggedInUser);
     }
 
     @PostMapping("/register")

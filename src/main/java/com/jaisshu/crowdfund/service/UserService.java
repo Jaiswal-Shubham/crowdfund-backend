@@ -1,6 +1,8 @@
 package com.jaisshu.crowdfund.service;
 
-import com.jaisshu.crowdfund.dto.UserLoginDTO;
+import com.jaisshu.crowdfund.dto.UserDTO;
+import com.jaisshu.crowdfund.dto.UserLoginRequestDTO;
+import com.jaisshu.crowdfund.dto.UserLoginResponseDTO;
 import com.jaisshu.crowdfund.dto.UserRegistrationDTO;
 import com.jaisshu.crowdfund.entity.User;
 
@@ -13,5 +15,5 @@ public interface UserService {
 
     List<User> getAllUsers();
 
-    User loginUser(UserLoginDTO userLoginDTO);
+    UserLoginResponseDTO loginUser(UserLoginRequestDTO userLoginRequestDTO);
 }
